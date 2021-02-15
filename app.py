@@ -18,7 +18,7 @@ App Configuration
 app = Flask(__name__)
 
 # Specify which environment we're using
-ENV = "dev"
+ENV = "prod"
 
 if ENV == "dev":
     app.debug = True
@@ -29,7 +29,7 @@ else:
     app.debug = False
     app.config[
         "SQLALCHEMY_DATABASE_URI"
-    ] = "todo"
+    ] = "postgres://xqarckquhmxddg:af952e2ff45ca3c05e90e36549972c129e2959c6380aace82066568ceb9dd072@ec2-52-23-190-126.compute-1.amazonaws.com:5432/d2dhh39n0tg82h"
 
 app.config.update(
     # EMAIL SETTINGS
@@ -73,7 +73,7 @@ If you need to redo the db setup, drop the table and then run python in terminal
 To add someone to Admin db:
     >>> from app import db
     >>> from app import Admin
-    >>> admin1 = Admin(***REMOVED***, "password")
+    >>> admin1 = Admin("klf16@my.fsu.edu", "password")
     >>> db.session.add(admin1)
     >>> db.session.commit()
     >>> exit()
@@ -243,7 +243,7 @@ def subscribe():
 
     # send them a welcome email
     subject = "Hi, it's Kelly"
-    msg = Message(subject, sender="youremail", recipients=[email])
+    msg = Message(subject, sender="kellyfoulkblog@gmail.com", recipients=[email])
     msg.body = f"Hello {first},\n Thanks for subscribing! \n Best, \n Kelly"
     msg.html = render_template("/emails/welcome.html", name=first)
     mail.send(msg)
@@ -384,7 +384,7 @@ def send_mail():
         body_html = request.form["body_html"]
         for sub in subs:
             msg = Message(
-                subject, sender="youremail", recipients=[sub.email]
+                subject, sender="kellyfoulkblog@gmail.com", recipients=[sub.email]
             )
             msg.body = f"Hello sub.first,\n{body_text}"
             msg.html = Markup(body_html).format(name=sub.first)
@@ -406,7 +406,7 @@ def send_test():
     body_text = request.form["body_text"]
     body_html = request.form["body_html"]
     msg = Message(
-        subject, sender="youremail", recipients=[***REMOVED***]
+        subject, sender="kellyfoulkblog@gmail.com", recipients=["klf16@my.fsu.edu"]
     )
     msg.body = body_text
     msg.html = Markup(body_html).format(name="Kelly")

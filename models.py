@@ -12,7 +12,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 code I used to add myself to user db:
 >>> from models import db
 >>> from models import Admin
->>> user = User(***REMOVED***, "password")
+>>> user = User("klf16@my.fsu.edu", "password")
 >>> db.session.add(user)
 >>> db.session.commit()
 >>> exit()
