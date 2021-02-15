@@ -1,0 +1,417 @@
+/* =================================
+  Base Element Styles
+  # Ensure responses aren't cached
+==================================== */
+
+* {
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+}
+
+body {
+	padding-top: 1em;
+	font-family: Arial, sans-serif;
+}
+
+h1 {
+	font-family: "Geneva", sans-serif;
+}
+
+img {
+	max-width: 100%;
+}
+
+footer {
+	margin-top: 10em;
+	margin-bottom: 1em;
+	text-align: center;
+}
+
+hr {
+	width: 80%;
+}
+
+textarea {
+	width: 100%;
+	height: 100%;
+}
+
+input {
+	width: 100%;
+}
+
+.btn, select {
+	background: none;
+	padding: .5em 1.25em;
+	border: solid 1px;
+	font-family: "Geneva", sans-serif;
+}
+
+a:link {
+	color: inherit;
+}
+
+#blog_intro {
+	text-align: center;
+	font-size: 2em;
+}
+
+.caption {
+	padding-top: 1em;
+	text-align: center;
+}
+
+/* --- Modal Box --- */
+/* The Modal */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#subscribe_message {
+	display:none;
+}
+
+/* =================================
+  Base Layout Styles
+==================================== */
+
+/* ---- Layout Containers ---- */
+
+.container {
+	width: 80%;
+	margin: 0 auto;
+}
+
+/* ---- Float clearfix ---- */
+
+.clearfix::after {
+	content: " ";
+	display: table;
+	clear: both;
+}
+
+
+/* ---- Navigation ---- */
+
+.main-nav a {
+	font-family: "Geneva", sans-serif;
+	display: block;
+	text-align: left;
+	padding: 10px 15px;
+	color: black;
+}
+
+.main-nav a:hover {
+	color: #3F4234;
+}
+
+.main-nav ol,
+ ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#phone_menu {
+	display: none;
+}
+
+#title {
+	font-size: 1.5em;
+}
+
+#menu {
+	float: left;
+}
+
+#phone_menu_btn {
+	float: right;
+	margin-top:0.4em;
+}
+
+#phone_menu_btn:visited {
+	border: none;
+}
+
+/* Home Page */
+
+/* ---- Banner ---- */
+
+.banner {
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+
+.banner img {
+	padding: .4em;
+}
+
+.banner h4 {
+	font-weight: normal;
+}
+
+.banner-right {
+	margin: .4em
+}
+
+.banner-left {
+	margin: .4em;
+	border: solid 1px black;
+}
+
+/* not sure where this is used */
+.inner {
+	padding: 1em .4em 0em;
+}
+
+/* ---- Blog Posts ---- */
+
+.post-sample {
+	padding: 2em 2em;
+}
+
+/* All of these are deprecated. Used with old_post_grid.html
+.post_sample {
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.post_sample img {
+	padding: .4em;
+}
+
+.post_sample h4 {
+	font-weight: normal;
+}
+
+.sample-right {
+	margin: .4em
+}
+
+.sample-left {
+	margin: .4em;
+}
+
+.sample-img {
+	overflow:hidden;
+
+}
+
+*/
+
+/* -- Change'container' div in post to this if you decide you want the header image/video to be larger than everything else. --*/
+.post img {
+	padding-top: 2em;
+}
+
+
+/* ---- Email Preview and Post Preview----- */
+
+#email_preview, #post_preview {
+	margin-top: 2em;
+	padding: 1em;
+	border: solid 1px;
+	display: None;
+}
+
+#html_preview {
+	all: initial;
+}
+
+
+/* ---- Page Elements ---- */
+
+.category_btn {
+	width: 45%;
+	font-size: 1.25em;
+}
+
+/* Forms */
+
+.form-btn {
+	margin-top: 2em;
+	display: block;
+	width: 100%;
+}
+
+.form-element {
+	padding: .5em 1.25em;
+	border: solid 1px;
+	font-family: "Geneva", sans-serif;
+	margin-top: 1em;
+}
+
+/* --- Create Post Form --- */
+
+#body_img_div label {
+    float:left;
+	height: 20px;
+	padding-top: 3px;
+	width: 30px;
+}
+#body_img_div input {
+    width: 300px;
+}
+
+/* ---- Admin Panel ---- */
+.admin-btn {
+	margin-bottom: 1em;
+}
+
+/* =================================
+  Media Queries
+==================================== */
+
+@media (min-width: 769px) {
+
+	/* ---- Layout Containers ---- */
+
+	#page-wrap {
+		width: 75%;
+		margin: 0 auto;
+	}
+
+	.modal-content {
+		width: 40%;
+	}
+
+	#login {
+		width: 50%;
+	}
+
+	/* ---- Navigation ---- */
+
+	#phone_menu {
+		display: contents!important;
+	}
+
+	#menu, #phone_menu_btn {
+		float: none;
+	}
+
+	.l {
+		float: left;
+	}
+
+	.r {
+		float: right;
+	}
+
+	#phone_menu li {
+		display: inline-block;
+		margin-left: 15px;
+		padding-top: .45em;
+	}
+
+	#phone_menu_btn {
+		display: none;
+	}
+
+	/* ---- Banner ---- */
+
+	.banner {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-top: 3em;
+		margin-bottom: 3em;
+	}
+
+	.banner-right {
+		width: 50%;
+		margin-left: 1em;
+	}
+
+	.banner-left {
+		width: 50%;
+		margin-right: 1em;
+	}
+
+	.banner h1 {
+		font-size: 3em;
+	}
+
+	/* ----- Post Samples ----- */
+
+	/* Deprecated
+	.post_sample {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-top: .5em;
+		margin-bottom: .5em;
+	}
+
+	.sample-right {
+		width: 50%;
+		margin-left: 1em;
+	}
+
+	.sample-left {
+		width: 50%;
+		margin-right: 1em;
+	}
+
+	.post_sample h1 {
+		font-size: 3em;
+	}
+	*/
+}
+
+@media (min-width: 1425px) {
+
+	#page-wrap {
+		width: 65%;
+	}
+
+	.modal-content {
+		width: 25%;
+	}
+
+	.banner h4 {
+		font-size: 1.25em;
+	}
+
+	.banner-right, .banner-left {
+		margin-left: 1.25em;
+		margin-right: 1.25em;
+	}
+
+}

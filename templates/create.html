@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    New Post
+{% endblock %}
+
+{% block main %}
+<script>
+var id = 1;
+var newinput = function() {
+  var parent = document.getElementById("body_img_div");
+  var field = document.createElement("input");
+  field.name = "body_imgs";
+  field.style = "display:block;";
+  field.type = "file";
+  field.id = "img" + id;
+  field.accept = ".jpg,.png,.gif";
+  var label = document.createElement("label");
+  label.setAttribute = ("for", "img" + id);
+  label.innerHTML= id + " : ";
+  div = document.createElement("div");
+  div.id = "img" + id + "div";
+  parent.appendChild(document.createElement("BR"));
+  div.appendChild(label);
+  div.appendChild(field);
+  parent.appendChild(div);
+  id += 1;
+}
+
+function postPreview() {
+    var body = document.getElementById('body_html').value;
+    var div = document.getElementById('post_preview');
+    var display = document.getElementById('body_html_preview');
+    div.style.display = "block";
+    display.innerHTML = body;
+}
+</script>
+
+<form action="/create" method="POST" class="container" enctype="multipart/form-data">
+    <h1>Create New Post (#{{ post_id }})</h1>
+    <i>If you are uploading images:
+        <ol>
+            <li>Make sure ENV is set to 'prod' in app.py.</li>
+            <li>Create the post locally using 'python3 app.py' (the post and image info will be pushed to the production database).</li>
+            <li>Afterwards don't forget to commit your changes and 'push origin heroku' to make sure that the images are stored in the /static file in heroku's directory.</li>
+        </ol>
+    </i>
+    <h3>Post Title (text):</h3>
+    <input type="text" name="h1" maxlength="125" />
+    <h3>Sample (text):</h3>
+    <textarea name="sample" cols="30" rows="3" maxlength="350"></textarea>
+    <h3>Youtube Video ID:</h3>
+    <input type="text" name="youtube_vid" maxlength="125" />
+    <h3>Header Image:</h3>
+    <input type="file" name="header" accept=".jpg,.png,.gif">
+    <h3>Body Images
+    <button type="button" name="button" onclick="newinput()">+</button></h3>
+    <div id="body_img_div">
+        <div id = "img0div">
+            <label for="img0">0 : </label>
+            <input type="file" id="img0" name="body_imgs" accept=".jpg,.png,.gif">
+        </div>
+    </div>
+    <h3>Body (html):</h3>
+    <p><i>Using your body images: &ltimg src="../{imgs[0].img_path}"&gt</i></p>
+    <textarea name="body" id='body_html' cols="30" rows="10"></textarea>
+    <h3>Category:</h3>
+    <select name="category">
+        <option value="">Select Category</option>
+        <option value="code">Code</option>
+        <!-- Eventually have ability to make new categories. Or maybe have tags so I can filter between things?-->
+        <option value="other">Other</option>
+    </select>
+    <button class="btn form-btn" type="submit">Create Post</button>
+    <button class="btn form-btn" type="button" onclick="postPreview()">Preview Post</button>
+</form>
+
+<div id="post_preview" class='container'>
+    <div id="body_html_preview">
+    </div>
+</div>
+{% endblock %}
